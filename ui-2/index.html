@@ -1,0 +1,121 @@
+<!-- dailyui challenge 02: credit card checkout -->
+
+<html>
+    <head>
+        <title>uinator 2</title>
+
+        <script src="../resources/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col-md-16" style="height:200px">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-body nopadding">
+                            
+                            <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-4" id="checkout-left">
+                                    <div class="col-md-12">
+                                        order details
+                                    </div>
+                                    <div class="col-md-12">
+                                        order back
+                                    </div>
+                                </div>
+                                <div class="col-md-8" id="checkout-right">
+                                    <div class="col-md-12" style="padding: 10px">
+                                        <span class="card-title">MASTERUI CARD</span>
+                                        
+                                    <hr/>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <form class="form">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Card Name"></input>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Card Number"></input>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <input type="text" class="form-control" placeholder="Exp Date"></input>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <input type="text" class="form-control" placeholder="CCV"></input>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-12">
+                                        card proceed
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+
+<style>
+
+body {
+    background: #f9f9f9 !important
+}
+
+#login-title {
+    color:#336699;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#login-btn {
+    font-weight: bold;
+    font-size: large;
+}
+
+#checkout-left {
+    background: white
+}
+
+#checkout-right {
+    background: #336699
+}
+
+.form {
+    margin: 0px
+}
+
+.nopadding {
+    padding: 0px
+}
+
+.card-title {
+    font-size: large;
+    font-weight: normal;
+    color: white;
+}
+</style>
