@@ -12,59 +12,62 @@
     </head>
     <body>
         
-        <div class="container-fluid">
-            
-            <div class="row">
-                <div class="col-md-16" style="height:200px">
-                </div>
-            </div>
-
-            <div class="row">
+        <div class="container-fluid main-container">
+            <div class="row main-container-row">
                 <div class="col-md-3">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 main-content-center">
 
-                    <div class="panel panel-default">
+                    <div class="panel panel-default checkout-panel">
 
                         <div class="panel-body nopadding">
                             
-                            <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-4" id="checkout-left">
-                                    <div class="col-md-12">
-                                        order details
+                            <div class="container-fluid checkout-main">
+                                <div class="row checkout-main-row">
+                                    <div class="col-md-4" id="checkout-left">
+                                        <div class="col-md-12 order-number text-center">
+                                            <span>0969596929</span>
+                                        </div>
+                                        <div class="col-md-12 order-pic text-center">
+                                            <img src="../resources/images/pudgebar.png" class="order-image"/>                                 
+                                        </div>
+                                        <div class="col-md-12 order-name text-center">
+                                            <span>Pudgebar</span>                                            
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        order back
+                                    <div class="col-md-8" id="checkout-right">
+                                        <div class="col-md-12" style="padding: 10px">
+                                            <span class="card-title">MASTERUI CARD</span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <form class="form">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Card Name"></input>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Card Number"></input>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" class="form-control" placeholder="Exp Date"></input>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" class="form-control" placeholder="CCV"></input>
+                                                </div>
+                                            </form>
+                                        </div> <!-- col 12 -->
+                                    </div>
+                                    
+                                </div> <!-- row -->
+                            
+                                <div class="row checkout-main-row">
+                                    <div class="col-md-4 text-center checkout-actions-left">
+                                        <span>BACK</span>
+                                    </div>
+                                    <div class="col-md-8 text-center checkout-actions-right">
+                                        <span>PROCEED TO CHECKOUT</span>
                                     </div>
                                 </div>
-                                <div class="col-md-8" id="checkout-right">
-                                    <div class="col-md-12" style="padding: 10px">
-                                        <span class="card-title">MASTERUI CARD</span>
-                                        
-                                    <hr/>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <form class="form">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Card Name"></input>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Card Number"></input>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <input type="text" class="form-control" placeholder="Exp Date"></input>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <input type="text" class="form-control" placeholder="CCV"></input>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-12">
-                                        card proceed
-                                    </div>
-                                </div>
-                            </div>
+
                             </div>
 
                         </div>
@@ -86,6 +89,23 @@ body {
     background: #f9f9f9 !important
 }
 
+.checkout-panel {
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-container{
+    height: 100%;
+}
+.main-container-row{
+    height: 100%;
+}
+.main-content-center{
+    height: 100%;
+    display: flex;
+}
+
 #login-title {
     color:#336699;
     font-weight: bold;
@@ -97,12 +117,45 @@ body {
     font-size: large;
 }
 
+.checkout-main {
+    display: table;
+    width: 100%;
+    padding: 0px; /*set left/right padding according to needs*/
+    box-sizing: border-box;
+}
+
+.checkout-main-row {
+    display: table-row;
+    height: 100%;
+}
+
 #checkout-left {
-    background: white
+    display: table-cell;
+    background: white;
+    float: none;
 }
 
 #checkout-right {
-    background: #336699
+    display: table-cell;
+    background: #336699;
+    color: white;
+    float: none;
+}
+
+.checkout-actions-left {
+    display: table-cell;
+    background: white;
+    padding: 10px;
+    border-top: solid 1px lightgray;
+    float: none;
+}
+.checkout-actions-right {
+    display: table-cell;
+    background: #336699;
+    color: white;
+    padding: 10px;
+    border-top: solid 1px #4477aa;
+    float: none;
 }
 
 .form {
@@ -118,4 +171,18 @@ body {
     font-weight: normal;
     color: white;
 }
+
+.order-number {
+    padding: 10px;
+}
+.order-pic {
+    padding: 10px;
+}
+.order-image {
+    width: 140px;
+}
+.order-name {
+    padding: 10px;
+}
+
 </style>
