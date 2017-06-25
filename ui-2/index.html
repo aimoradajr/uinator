@@ -25,12 +25,17 @@
                         pudgebar
                     </div>
                     <div class="credit-back">
-                        <button>BACK</button>
+                        <button class="credit-back-btn btn btn-block btn-default">BACK</button>
                     </div>
                 </div>
                 <div class="credit-right">
-                    <div class="credit-type">
-                        MASTERUI CARD
+                    <div class="credit-type form-group">
+                        <select class="form-control">
+                            <option>MASTERUI CARD</option>
+                            <option>VISA CARD</option>
+                            <option>CAPITAL TWO CARD</option>
+                        </select>
+                        
                     </div>
                     <div class="credit-form">
                         <form class="form">
@@ -51,7 +56,7 @@
                         </form>
                     </div>
                     <div class="credit-proceed">
-                        <button>PROCEED</button>
+                        <button class="credit-proceed-btn btn btn-block btn-default">PROCEED</button>
                     </div>
                 </div>
             </div>
@@ -103,8 +108,8 @@ body {
     flex: 1 0 auto;
 }
 .credit-item-image-img {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     margin: auto;
 }
 
@@ -112,25 +117,45 @@ body {
     padding: 15px;
 }
 .credit-back {
-    padding: 15px;
+    width: 100%;
 }
 
 .credit-type {
     padding: 15px;
+    width: 100%;
 }
 
 .credit-form {
     padding: 15px;
     flex: 1 0 auto;
+    width: 100%;
 }
 
 .credit-proceed {
-    padding: 15px;
+    width: 100%;
 }
 
 .date-ccv-div {
     display: flex;
     justify-content: space-between;
+}
+
+.credit-back-btn {
+    border: none;
+    border-radius: 0px;
+    background: white;
+    padding: 10px 0px;
+}
+.credit-proceed-btn {
+    border: none;
+    border-radius: 0px;
+    background: #31708f;
+    color: white;
+    padding: 10px 0px;
+}
+.credit-proceed-btn:hover {
+    color: black;
+    background: cadetblue;
 }
 
 </style>
