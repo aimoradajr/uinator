@@ -1,0 +1,141 @@
+<!-- dailyui challenge 04: calculator -->
+
+<html>
+    <head>
+        <title>uinator 4</title>
+
+        <script src="../resources/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        
+        <div class="main-div">
+            <div class="calc-main">
+                <div class="calc-head">
+                    <span class="calc-title">Calculatinator 1.0</span>
+                </div>
+                <div class="calc-body">
+                    <div class="output-div">
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" readonly class="form-control calc-out text-right" value="123123"></input>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="buttons-div">
+                        <button class="btn btn-default btn-md calc-btn">C</button>
+                        <button class="btn btn-default btn-md calc-btn">+/-</button>
+                        <button class="btn btn-default btn-md calc-btn"><</button>
+                        <button class="btn btn-default btn-md calc-btn">/</button>
+                    </div>
+                    <div class="buttons-div">
+                        <button class="btn btn-default btn-md calc-btn">7</button>
+                        <button class="btn btn-default btn-md calc-btn">8</button>
+                        <button class="btn btn-default btn-md calc-btn">9</button>
+                        <button class="btn btn-default btn-md calc-btn">*</button>
+                    </div>
+                    <div class="buttons-div">
+                        <button class="btn btn-default btn-md calc-btn">4</button>
+                        <button class="btn btn-default btn-md calc-btn">5</button>
+                        <button class="btn btn-default btn-md calc-btn">6</button>
+                        <button class="btn btn-default btn-md calc-btn">-</button>
+                    </div>
+                    <div class="buttons-div">
+                        <button class="btn btn-default btn-md calc-btn">1</button>
+                        <button class="btn btn-default btn-md calc-btn">2</button>
+                        <button class="btn btn-default btn-md calc-btn">3</button>
+                        <button class="btn btn-default btn-md calc-btn">+</button>
+                    </div>
+                    <div class="buttons-div">
+                        <button class="btn btn-default btn-md calc-btn">0</button>
+                        <button class="btn btn-default btn-md calc-btn">.</button>
+                        <button class="btn btn-primary btn-md calc-btn-equal">=</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+
+<style>
+
+body {
+    background: #f9f9f9 !important
+}
+
+.main-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.calc-main {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.calc-head {
+    padding: 10px;
+}
+
+.calc-title {
+    font-size: large;
+    color: black;
+}
+
+.calc-body {
+    padding: 10px;
+    border: solid 1px black;
+    border-radius: 4px;
+    background: white;
+}
+
+.output-div {
+    padding: 5px 5px 0px 5px;
+}
+
+.buttons-div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.calc-btn {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 3px;
+    background: lightgray;
+    border: solid 1px darkgray;
+    color: black;
+}
+
+.calc-btn:hover {
+    color: white;
+    border: solid 1px white;
+    background: cornflowerblue;
+}
+
+.calc-out {
+    width: 100%;
+    padding: 25px;
+    border: solid 1px darkgray
+}
+
+.calc-btn-equal {
+    width: 110px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 3px;
+    border: solid 1px darkgray;
+}
+
+</style>
