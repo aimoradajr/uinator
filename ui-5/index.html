@@ -1,0 +1,80 @@
+<!-- dailyui challenge 05: app icon -->
+
+<html>
+    <head>
+        <title>uinator 5</title>
+
+        <script src="../resources/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        
+        <div class="main-div">
+            <div class="logo-main">
+                <canvas id="my-logo" height="200px" width="200px">
+                    <p>Your browser doesn't support canvas.</p>
+                </canvas>
+                <img class="image-logo" src="../resources/images/logoinator1.png"/>
+                <img class="image-logo" src="../resources/images/logoinator2.png"/>
+                <img class="image-logo" src="../resources/images/logoinator3.png"/>
+                <img class="image-logo" src="../resources/images/logoinator4.png"/>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<script>
+    var myCanvas = document.getElementById('my-logo');
+
+    if(myCanvas.getContext){
+        var context = myCanvas.getContext('2d');
+        context.strokeStyle = "#000000";
+        context.fillStyle = "#FFFF00";
+        context.beginPath();
+        context.arc(100,100,50,0,Math.PI*2,true);
+        context.closePath();
+        context.stroke();
+        context.fill();
+    }
+    else
+    {
+        alert('Canvas not supported by your browser')
+    }
+</script>
+
+<style>
+
+body {
+    background: #f9f9f9 !important
+}
+
+.main-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.logo-main {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    border: solid 1px;
+    padding: 20px;
+}
+
+#my-logo {
+    display: none;
+}
+
+.image-logo {
+    margin: 10px;
+}
+
+
+</style>
