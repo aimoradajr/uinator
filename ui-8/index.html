@@ -1,0 +1,72 @@
+<!-- dailyui challenge 08: 404 page -->
+
+<html>
+    <head>
+        <title>uinator 8</title>
+
+        <script src="../resources/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        
+        <div class="main-div">
+            <div id="fourofour-main">
+                <div id="fof-image-div">
+                    <img id="fof-image" src="../resources/images/404.png"/>
+                </div>
+                <div id="fof-text">
+                    <span class="fof-num">404</span>&nbsp;<span>Page not found.</span>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+<style>
+
+body {
+    background: white;
+}
+
+.main-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#fourofour-main {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+}
+
+#fof-image-div {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#fof-image {
+    height: 100px;
+    height: 100px;
+}
+
+#fof-text {
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.fof-num {
+    color: red;
+}
+
+</style>
