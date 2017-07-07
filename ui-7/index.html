@@ -1,0 +1,273 @@
+<!-- dailyui challenge 07: Settings -->
+
+<html>
+    <head>
+        <title>uinator 7</title>
+
+        <script src="../resources/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        
+        <div class="main-div">
+            <div id="settings-main">
+                <div id="settings-head">
+                    <span class="glyphicon glyphicon-cog my-settings-icon"></span>
+                    <span class="settings-title">Life Settings</span>
+                </div>
+                <div id="settings-body">
+
+                    <div class="settings-divider">
+                        General
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Sex
+                        </div>
+                        <div class="settings-val">
+                            <div class="radio-inline">
+                                <label><input type="radio" name="sex-radio"></input>Male</label>
+                            </div>
+                            <div class="radio-inline">
+                                <label><input type="radio" name="sex-radio"></input>Female</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Difficulty
+                        </div>
+                        <div class="settings-val form-inline">
+                            <select class="form-control">
+                                <option selected>Easy</option>
+                                <option>Medium</option>
+                                <option>Hard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Sleep time
+                        </div>
+                        <div class="settings-val form-inline">
+                            <div class="form-group">
+                                <input type="range" class="settings-ranger" min="0" max="24" onchange="updateSleepTime(this.value)"></range>
+                            </div>
+                            <div class="form-group">
+                                <label id="sleep-time-val"></label> hours
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-divider">
+                        Work
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Work Type
+                        </div>
+                        <div class="settings-val form-inline">
+                            <select class="form-control">
+                                <option>Houseband</option>
+                                <option selected>Computer Programmer</option>
+                                <option>Fisherman</option>
+                                <option>Pilot</option>
+                                <option>Police</option>
+                                <option>Weather Man</option>
+                                <option>Driver</option>
+                                <option>Dancer</option>
+                                <option>Singer</option>
+                                <option>Actor/Actress</option>
+                                <option>None</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Salary
+                        </div>
+                        <div class="settings-val form-inline">
+                            Php <input class="form-control" type="number" min="1" max="10000"></input>  /hour
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Boss Type
+                        </div>
+                        <div class="settings-val">
+                            <div class="radio-inline">
+                                <label><input type="radio" name="boss-type-radio"></input>Awesome</label>
+                            </div>
+                            <div class="radio-inline">
+                                <label><input type="radio" name="boss-type-radio"></input>Good</label>
+                            </div>
+                            <div class="radio-inline">
+                                <label><input type="radio" name="boss-type-radio"></input>Meh</label>
+                            </div>
+                            <div class="radio-inline">
+                                <label><input type="radio" name="boss-type-radio"></input>Bad</label>
+                            </div>
+                            <div class="radio-inline">
+                                <label><input type="radio" name="boss-type-radio"></input>Psycho</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-divider">
+                        Family
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Siblings Count
+                        </div>
+                        <div class="settings-val form-inline">
+                            <input class="form-control" type="number" min="0" max="20"></input>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Parents
+                        </div>
+                        <div class="settings-val">
+                            <div class="checkbox-inline">
+                                <label><input type="checkbox"></input>Mother</label>
+                            </div>
+                            <div class="checkbox-inline">
+                                <label><input type="checkbox"></input>Father</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-divider">
+                        Social
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Have Social Life?
+                        </div>
+                        <div class="settings-val">
+                            <div class="checkbox-inline">
+                                <label><input type="checkbox"></input>Yes I Have A Social Life</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Confirm (Have Social Life?)
+                        </div>
+                        <div class="settings-val">
+                            <div class="checkbox-inline">
+                                <label><input type="checkbox"></input>Yes I Have A Social Life. Yes</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-name">
+                            Beers per hour
+                        </div>
+                        <div class="settings-val form-inline">
+                            <input class="form-control" type="number" min="1" max="50"></input> beers per hour
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+<style>
+
+body {
+    background: white;
+}
+
+.main-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#settings-main {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    width: 100%;
+}
+
+.my-settings-icon {
+    font-size: 30px;
+}
+
+#settings-head {
+    padding: 10px;
+}
+
+#settings-head .settings-title {
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.settings-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-item {
+    display: flex;
+    flex-flow: row;
+    margin-left: 5px;
+}
+
+.settings-name {
+    max-width: 20%;
+    flex-grow: 1;
+    padding: 10px;
+    margin: auto;
+    color: #555;
+}
+
+.settings-val {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.settings-divider {
+    padding: 10px;
+    border-top: solid 1px #f3f3f3;
+    font-size: larger;
+}
+
+.settings-ranger {
+    width: 200px;
+}
+
+</style>
+
+<script>
+
+function updateSleepTime(val)
+{
+    console.log(val)
+    document.getElementById('sleep-time-val').innerHTML = val;
+}
+</script>
