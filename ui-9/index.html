@@ -1,0 +1,187 @@
+<!-- dailyui challenge 09: music player -->
+
+<html>
+    <head>
+        <title>uinator 9</title>
+
+        <script src="../resources/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        
+        <div class="main-div">
+            <div class="player-head">
+                <div class="player-logo">
+                    <img class="player-logo-image" src="../resources/images/404.png"/>
+                </div>
+                <div class="player-logo-name">
+                    Musicinator Alpha
+                </div>
+            </div>
+            <div class="player-main">
+                <div class="song-head">
+                    <div class="song-image-div">
+                        <img class="song-image" src="../resources/images/404.png"/>
+                    </div>
+                    <div class="song-details">
+                        <div class="song-title">Tinapa coloured boy</div>
+                        <div class="song-artist">Silogpamore</div>
+                    </div>
+                </div>
+            </div>
+            <div class="song-line">
+                <span class="song-line-timer">00:00</span>
+                <input type="range"></input>
+                <span class="song-line-timer">4:30</span>
+            </div>
+            <div class="player-controls">
+                <button type="button" class="prev-btn"><</button>
+                <button type="button" class="play-btn">P</button>
+                <button type="button" class="play-btn hidden">ll</button>
+                <button type="button" class="next-btn">></button>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+<style>
+
+body {
+    background: white;
+}
+
+.main-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.main-div:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    background-image: url("../resources/images/404.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.player-head {
+    display: flex;
+    flex-direction: row;
+}
+
+.player-logo {
+    padding: 10px;
+}
+
+.player-logo-image {
+    height: 50px;
+    width: 50px;
+}
+
+.player-logo-name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.player-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.song-head {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px 20px 20px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.song-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.song-title {
+    font-weight: bold;
+    font-size: xx-large;
+    padding: 10px 10px 0px 10px;
+    text-align: center;
+}
+
+.song-artist {
+    font-size: large;
+    padding: 0px 10px 10px 10px;
+    text-align: center;
+}
+
+.song-image-div {
+    padding: 10px;
+    display: flex;
+}
+
+.song-image {
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    border: solid 1px #f3f3f3;
+}
+
+.song-line {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.song-line-timer {
+    padding: 5px;
+}
+
+.player-controls {
+    padding: 0px 20px 20px 20px;
+    text-align: center;
+}
+
+.play-btn {
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: none;
+}
+
+.prev-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: none;
+}
+
+.next-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: none;
+}
+</style>
