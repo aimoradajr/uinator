@@ -2,20 +2,27 @@
 
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>uinator 9</title>
 
         <script src="../resources/jquery/dist/jquery.min.js"></script>
 
         <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
         <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
         <div class="really-main-div">
             <div class="playlist-div">
                 <div class="playlist-head">
-                    Playlist
+                    <div class="playlist-head-content">
+                        <div class="playlist-head-title">
+                            <span>Playlist</span>
+                        </div>
+                        <div class="playlist-head-actions">
+                            <button type="button" id="close-playlist-btn" class="close-button glyphicon glyphicon-chevron-left"></button>
+                        </div>
+                    </div>
                 </div>
                 <div class="playlist-list">
                     <div class="playlist-item clickable">
@@ -65,8 +72,9 @@
                 </div>
             </div>
             <div class="main-div">
+                <span style="text-align:right;padding:5px;color:red;">Responsive is hard! Try again next time!!</span>
                 <div class="player-head">
-                    <div class="player-logo">
+                    <div class="<player-lo></player-lo>go">
                         <img class="player-logo-image" src="../resources/images/musicinator_alpha_logo.png"/>
                     </div>
                     <div class="player-logo-name">
@@ -90,15 +98,21 @@
                     <span class="song-line-timer">4:30</span>
                 </div>
                 <div class="player-controls">
-                    <button type="button" class="o-button-small repeat-all-btn glyphicon glyphicon-repeat"></button>
-                    <button type="button" class="o-button-small repeat-one-btn glyphicon glyphicon-repeat hidden"></button>
-                    <button type="button" class="o-button-small shuffle-btn glyphicon glyphicon-repeat hidden"></button>
-                    <button type="button" class="o-button-small repeat-normal-btn glyphicon glyphicon-repeat hidden"></button>
-                    <button type="button" class="o-button-small prev-btn glyphicon glyphicon-step-backward"></button>
-                    <button type="button" class="o-button-big play-btn glyphicon glyphicon-play"></button>
-                    <button type="button" class="o-button-big pause-btn glyphicon glyphicon-pause hidden">ll</button>
-                    <button type="button" class="o-button-small next-btn glyphicon glyphicon-step-forward"></button>
-                    <button type="button" class="o-button-small settings-btn glyphicon glyphicon-cog"></button>
+                    <div class="player-control-group">
+                        <button type="button" id="playlist-btn" class="o-button-small glyphicon glyphicon-list-alt"></button>
+                    </div>
+                    <div class="player-control-group">
+                        <button type="button" id="prev-btn" class="o-button-small glyphicon glyphicon-backward"></button>
+                        <button type="button" id="play-btn " class="o-button-big glyphicon glyphicon-play"></button>
+                        <button type="button" id="pause-btn " class="o-button-big glyphicon glyphicon-pause hidden"></button>
+                        <button type="button" id="next-btn" class="o-button-small glyphicon glyphicon-forward"></button>
+                    </div>
+                    <div class="player-control-group">
+                        <button type="button" id="repeat-all-btn" class="o-button-small glyphicon glyphicon-repeat"></button>
+                        <button type="button" id="repeat-one-btn" class="o-button-small glyphicon glyphicon-repeat hidden"></button>
+                        <button type="button" id="shuffle-btn" class="o-button-small glyphicon glyphicon-repeat hidden"></button>
+                        <button type="button" id="repeat-normal-btn" class="o-button-small glyphicon glyphicon-repeat hidden"></button>
+                    </div>
                 </div>
             </div>
                 </div>
@@ -138,6 +152,28 @@ body {
     color: #222;
     font-size: 20px;
     padding: 10px;
+}
+
+.playlist-head-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.playlist-head-title {
+    flex-grow: 1;
+}
+
+.playlist-head-actions {
+    color: #222;
+}
+
+.close-button {
+    border: none;
+    background: none;
+    padding: 5px;
+}
+.close-button:active {
+    background: #ddd
 }
 
 .playlist-list {
@@ -272,10 +308,15 @@ body {
 .player-controls {
     padding: 0px 20px 20px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
 }
 
-.o-button-big
-{
+.player-control-group  {
+    margin: auto;
+}
+
+.o-button-big{
     width: 100px;
     height: 100px;
     font-size: 20px;
@@ -283,6 +324,10 @@ body {
     border: solid 1px #222;
     background: white;
     color: #222;
+}
+.o-button-big:active {
+    background: #ddd;
+    border-width: 2px;
 }
 
 .o-button-small {
@@ -293,6 +338,10 @@ body {
     border: solid 1px #222;
     background: white;
     color: #222;
+}
+.o-button-small:active {
+    background: #ddd;
+    border-width: 2px;
 }
 
 .play-btn {
@@ -306,3 +355,14 @@ body {
     margin-right: 10px;
 }
 </style>
+
+<script>
+// jquery na muna tayo
+$('#close-playlist-btn').click(function(){
+    $('.playlist-div').hide();
+})
+
+$('#playlist-btn').click(function(){
+    $('.playlist-div').show();
+})
+</script>
