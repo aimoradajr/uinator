@@ -1,0 +1,264 @@
+<!-- dailyui challenge 14: countdown timer -->
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>uinator 14</title>
+
+        <script src="../resources/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container-main">
+            <div class="timer-input">
+                <div class="timer-input-group">
+                    <input id="timer-input-hour" class="timer-input-number" type="number" min="0" max="23"/>
+                    <span>Hour</span>
+                </div>
+                <div class="timer-input-group">
+                    <input id="timer-input-min" class="timer-input-number" type="number" min="0" max="59"/>
+                    <span>Min</span>
+                </div>
+                <div class="timer-input-group">
+                    <input id="timer-input-sec" class="timer-input-number" type="number" min="0" max="59"/>
+                    <span>Sec</span>
+                </div>
+            </div>
+            <div class="timer-display hidden">
+                <div class="timer-display-group">
+                    <span id="timer-display-hour" class="timer-display-span">00</span>
+                    <span>Hour</span>
+                </div>
+                <div class="timer-display-group">
+                    <span id="timer-display-min" class="timer-display-span">00</span>
+                    <span>Min</span>
+                </div>
+                <div class="timer-display-group">
+                    <span id="timer-display-sec" class="timer-display-span">00</span>
+                    <span>Sec</span>
+                </div>
+            </div>
+            <div id="end-of-times-div" class="hidden">
+                <span class="end-message">Countdown Timer Ended.</span>
+            </div>
+            <div class="timer-actions">
+                <button type="button" id="play-btn" class="timer-actions-btn glyphicon glyphicon-play"></button>
+                <button type="button" id="pause-btn" class="timer-actions-btn glyphicon glyphicon-pause hidden"></button>
+                <button type="button" id="continue-btn" class="timer-actions-btn glyphicon glyphicon-play hidden"></button>
+                <button type="button" id="stop-btn" class="timer-actions-btn glyphicon glyphicon-stop hidden"></button>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+
+body {
+    background: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.container-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.timer-input {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0px 10px;
+}
+
+.timer-input-number {
+    border-radius: 4px;
+    border: solid 1px #888;
+    padding: 5px;
+    text-align: right;
+}
+
+.timer-display {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-display-group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0px 10px;
+}
+
+.timer-display-span {
+    font-size: 40px;
+}
+
+#end-of-times-div {
+    text-align: center;
+}
+
+.timer-actions {
+    text-align: center;
+    padding: 20px;
+}
+
+.timer-actions-btn {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: solid 1px #888;
+    background: #f3f3f3;
+    font-size: 30px;
+}
+
+</style>
+
+<script>
+var timerRunning = false;
+var timerHour = 0;
+var timerMin = 1;
+var timerSec = 5;
+
+resetTimer();
+
+window.setInterval(function(){
+    if(timerRunning)
+    {
+        //countdown the time;
+        timerSec--;
+        if(timerSec<0)
+        {
+            console.log('sec--');
+            timerMin--;
+            if(timerMin<0)
+            {
+                console.log('min--');
+                timerHour--;
+                if(timerHour<0)
+                {
+                    console.log('hour--');
+                    // end the timer
+                    itsEndTime();
+                    console.log('Timer ended.')
+                }
+                if(timerRunning)
+                    timerMin = 59;
+            }
+            if(timerRunning)
+                timerSec=59;
+        }
+
+        console.log('current time', timerHour,timerMin,timerSec)
+        itsShowTime()
+    }
+}, 1000)
+
+function itsShowTime(){
+    $('#timer-display-hour').text(timerHour)
+    $('#timer-display-min').text(timerMin)
+    $('#timer-display-sec').text(timerSec)
+}
+
+function itsEndTime() {
+    timerRunning = false;
+
+    timerHour = 0;
+    timerMin = 0;
+    timerSec = 0;
+
+    $('#end-of-times-div').removeClass('hidden');
+    $('.timer-input').removeClass('hidden');
+    $('.timer-display').addClass('hidden');
+    
+    $('#stop-btn').addClass('hidden');
+    $('#pause-btn').addClass('hidden');
+    $('#continue-btn').addClass('hidden');
+    $('#play-btn').removeClass('hidden');
+}
+
+$('#play-btn').click(function(){
+    console.log('Starting timer..')
+
+    timerHour = $('#timer-input-hour').val();
+    timerMin = $('#timer-input-min').val();
+    timerSec = $('#timer-input-sec').val();
+
+    if(!timerHour)
+        timerHour=0;
+    if(!timerMin)
+        timerMin=0;
+    if(!timerSec)
+        timerSec=0;
+
+    timerRunning = true;
+
+    $('#end-of-times-div').addClass('hidden');
+    $('.timer-input').addClass('hidden');
+    $('.timer-display').removeClass('hidden');
+    
+    $('#play-btn').addClass('hidden');
+    $('#continue-btn').addClass('hidden');
+    $('#pause-btn').removeClass('hidden');
+    $('#stop-btn').removeClass('hidden');
+})
+
+$('#pause-btn').click(function(){
+    console.log('Pausing timer..')
+    timerRunning = false;
+    
+    $('#pause-btn').addClass('hidden');
+    $('#continue-btn').removeClass('hidden');
+})
+
+$('#continue-btn').click(function(){
+    console.log('Resuming timer..')
+    timerRunning = true;
+    
+    $('#continue-btn').addClass('hidden');
+    $('#pause-btn').removeClass('hidden');
+})
+
+$('#stop-btn').click(function(){
+    console.log('Stoping timer..')
+    timerRunning = false;
+    resetTimer();
+
+    $('.timer-input').removeClass('hidden');
+    $('.timer-display').addClass('hidden');
+    
+    $('#stop-btn').addClass('hidden');
+    $('#pause-btn').addClass('hidden');
+    $('#play-btn').removeClass('hidden');
+    $('#continue-btn').addClass('hidden');
+    itsShowTime()
+})
+
+function resetTimer(){
+    timerHour = 0;
+    timerMin = 0;
+    timerSec = 0;
+
+    $('#timer-input-hour').val(0);
+    $('#timer-input-min').val(0);
+    $('#timer-input-sec').val(0);
+}
+</script>
