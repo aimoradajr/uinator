@@ -33,8 +33,14 @@
                     <span>Hour</span>
                 </div>
                 <div class="timer-display-group">
+                    <span>:</span>
+                </div>
+                <div class="timer-display-group">
                     <span id="timer-display-min" class="timer-display-span">00</span>
                     <span>Min</span>
+                </div>
+                <div class="timer-display-group">
+                    <span>:</span>
                 </div>
                 <div class="timer-display-group">
                     <span id="timer-display-sec" class="timer-display-span">00</span>
@@ -131,6 +137,13 @@ body {
     font-size: 30px;
 }
 
+@media only screen
+and (min-width:768px)
+and (max-width:1024px)
+{
+    /* wow. layout too simple. no need to add media css. orayt.*/
+}
+
 </style>
 
 <script>
@@ -177,9 +190,9 @@ window.setInterval(function(){
 }, 1000)
 
 function itsShowTime(){
-    $('#timer-display-hour').text(timerHour)
-    $('#timer-display-min').text(timerMin)
-    $('#timer-display-sec').text(timerSec)
+    $('#timer-display-hour').text(("0"+timerHour).slice(-2))
+    $('#timer-display-min').text(("0"+timerMin).slice(-2))
+    $('#timer-display-sec').text(("0"+timerSec).slice(-2))
 }
 
 function itsEndTime() {
@@ -188,6 +201,10 @@ function itsEndTime() {
     timerHour = 0;
     timerMin = 0;
     timerSec = 0;
+
+    $('#timer-input-hour').val(0);
+    $('#timer-input-min').val(0);
+    $('#timer-input-sec').val(0);
 
     $('#message-div').removeClass('hidden');
     $('.message-span').text('Countdown Timer Ended.');
@@ -226,10 +243,11 @@ $('#play-btn').click(function(){
     if(timerHour==0&&timerMin==0&&timerSec==0)
     {
         $('#message-div').removeClass('hidden');
-        $('.message-span').text('Timer Not Set.');
+        $('.message-span').text('Yow! You make lagay lagay time up there ^');
         return;
     }
 
+    itsShowTime();
     timerRunning = true;
 
     $('#message-div').addClass('hidden');
