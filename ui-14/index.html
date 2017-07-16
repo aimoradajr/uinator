@@ -41,8 +41,8 @@
                     <span>Sec</span>
                 </div>
             </div>
-            <div id="end-of-times-div" class="hidden">
-                <span class="end-message">Countdown Timer Ended.</span>
+            <div id="message-div" class="hidden">
+                <span class="message-span"></span>
             </div>
             <div class="timer-actions">
                 <button type="button" id="play-btn" class="timer-actions-btn glyphicon glyphicon-play"></button>
@@ -91,6 +91,7 @@ body {
     border: solid 1px #888;
     padding: 5px;
     text-align: right;
+    font-size: 25px;
 }
 
 .timer-display {
@@ -112,7 +113,7 @@ body {
     font-size: 40px;
 }
 
-#end-of-times-div {
+#message-div {
     text-align: center;
 }
 
@@ -137,6 +138,9 @@ var timerRunning = false;
 var timerHour = 0;
 var timerMin = 1;
 var timerSec = 5;
+var MAX_HOUR = 23;
+var MAX_MIN = 59;
+var MAX_SEC = 59;
 
 resetTimer();
 
@@ -185,7 +189,9 @@ function itsEndTime() {
     timerMin = 0;
     timerSec = 0;
 
-    $('#end-of-times-div').removeClass('hidden');
+    $('#message-div').removeClass('hidden');
+    $('.message-span').text('Countdown Timer Ended.');
+    
     $('.timer-input').removeClass('hidden');
     $('.timer-display').addClass('hidden');
     
@@ -208,10 +214,25 @@ $('#play-btn').click(function(){
         timerMin=0;
     if(!timerSec)
         timerSec=0;
+    
+    if(timerHour>MAX_HOUR)
+        timerHour=23;
+    if(timerMin>MAX_MIN)
+        timerMin=59;
+    if(timerSec>MAX_SEC)
+        timerSec=59;
+
+    // time not set?
+    if(timerHour==0&&timerMin==0&&timerSec==0)
+    {
+        $('#message-div').removeClass('hidden');
+        $('.message-span').text('Timer Not Set.');
+        return;
+    }
 
     timerRunning = true;
 
-    $('#end-of-times-div').addClass('hidden');
+    $('#message-div').addClass('hidden');
     $('.timer-input').addClass('hidden');
     $('.timer-display').removeClass('hidden');
     
@@ -260,5 +281,8 @@ function resetTimer(){
     $('#timer-input-hour').val(0);
     $('#timer-input-min').val(0);
     $('#timer-input-sec').val(0);
+
+    $('#message-div').removeClass('hidden');
+    $('.message-span').text('');
 }
 </script>
