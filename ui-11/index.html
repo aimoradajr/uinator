@@ -1,0 +1,100 @@
+<!-- dailyui challenge 11: flash message -->
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>uinator 11</title>
+
+        <script src="../resources/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../resources/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="../resources/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="flash-message-div">
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1>Yow Wazzup</h1>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <button type="button" class="btn btn-md btn-primary" onclick="showMessageInfo('Yey')">Click Me</button>
+                    <button type="button" class="btn btn-md btn-danger" onclick="showMessageDanger('Wat da!')">DON'T Click Me</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+
+body {
+    background: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.flash-message-div {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.message-info-item {
+    margin: 5px;
+    padding: 10px 15px;
+    background: #9fdfff;
+    color: #286090;
+    border-radius: 3px;
+}
+.message-danger-item {
+    margin: 5px;
+    padding: 10px 15px;
+    background: #ffa7b3;
+    color: #a51515;
+    border-radius: 3px;
+}
+
+@media only screen
+and (min-width:768px)
+and (max-width:1024px)
+{
+    /* wow. layout too simple. no need to add media css. orayt.*/
+}
+
+</style>
+
+<script>
+
+    function showMessageInfo(mes)
+    {
+        var randy = parseInt(Math.random()*200)
+        console.log(randy)
+        
+        $('.flash-message-div').prepend("<div class='message-info-item' id='message-info-item-"+randy+"'>"+ mes +"</div>")
+        
+        setTimeout(function(){
+            console.log('#message-info-item-'+randy)
+            $('#message-info-item-'+randy).remove();
+        }, 10000)
+    }
+
+    function showMessageDanger(mes)
+    {
+        var randy = parseInt(Math.random()*200)
+        console.log(randy)
+        
+        $('.flash-message-div').prepend("<div class='message-danger-item' id='message-danger-item-"+randy+"'>"+ mes +"</div>")
+        
+        setTimeout(function(){
+            console.log('#message-danger-item-'+randy)
+            $('#message-danger-item-'+randy).remove();
+        }, 10000)
+    }
+</script>
